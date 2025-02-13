@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   newFriend: string | null = null;
-  favorite: string | null = null;
+  favorites: string[] = [];
 
   people: string[] = ['lewis', 'jules', 'ed', 'nathan', 'dave', 'nigel'];
 
@@ -21,6 +21,19 @@ export class AppComponent {
   }
 
   addFav(people: string) {
-    this.favorite = people;
+    if (this.favorites.indexOf(people) === -1) {
+      this.favorites.push(people);
+    }
+  }
+
+  isinFav(people: string) {
+    if (this.favorites.indexOf(people) === -1) {
+      return false;
+    }
+    return true;
+  }
+
+  deleteFav(people: string) {
+    this.favorites = this.favorites.filter((p) => p !== people);
   }
 }

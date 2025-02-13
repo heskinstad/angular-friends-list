@@ -10,8 +10,13 @@ export class PeopleComponent {
   @Input() name: string = '';
   @Input() isFav: boolean = false;
   @Output() addFav: EventEmitter<string> = new EventEmitter<string>();
+  @Output() deleteFav: EventEmitter<string> = new EventEmitter<string>();
 
-  addToFavs(p: string) {
-    this.addFav.emit(p);
+  addToFavs(people: string) {
+    this.addFav.emit(people);
+  }
+
+  deleteFromFavs(people: string) {
+    this.deleteFav.emit(people);
   }
 }
