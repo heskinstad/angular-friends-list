@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
+  standalone: false,
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
@@ -17,5 +18,9 @@ export class AppComponent {
     }
     this.people.push(this.newFriend);
     this.newFriend = null;
+  }
+
+  addFav(people: string) {
+    this.favorite = people;
   }
 }
